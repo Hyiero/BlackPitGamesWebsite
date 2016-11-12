@@ -29,10 +29,11 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/app'));
 
 //=========== Routes ===========
+var blogRouter = require('./server/routes/post.routes');
+var baseRouter = require('./server/routes/base.routes');
 
-var routes = require('./server/api.routes'); //configure our routes
-routes(app);
-
+app.use('/',blogRouter);
+app.use(baseRouter);
 //=========== Start App ===========
 app.listen(port);
 
