@@ -27,6 +27,7 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 
 //Set the static files location /app/img will be /img for users
 app.use(express.static(__dirname + '/app'));
+app.use(express.static(__dirname + '/'));
 
 //=========== Routes ===========
 var blogRouter = require('./server/routes/post.routes');
