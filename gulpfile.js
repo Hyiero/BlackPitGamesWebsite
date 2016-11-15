@@ -12,7 +12,10 @@ function bundleApp(){
 
     var sourceFile = './app/app.module.js';
 
-    return browserify(sourceFile)
+    //Debug needs to be set in order to see the sourcemapped scripts in the browser
+    var browserifyApp = browserify(sourceFile,{debug: true});
+
+    return browserifyApp
         .bundle()
         //Pass desired output filename to vinyl-source-stream
         .pipe(source('bundle.js'))
